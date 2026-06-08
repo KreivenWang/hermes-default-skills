@@ -1,24 +1,68 @@
 ---
 name: exam-countdown-briefing
-description: "Create cron-based daily exam countdown briefings with dynamic phase-based tone, domain-specific humor, and messaging platform delivery (WeChat/Telegram/etc.)"
-version: 1.0.0
+description: "考试倒计时：当用户询问考试倒计时时，立即用 Python 计算剩余天数并生成倒计时简报。也支持设置 cron 定时推送。"
+version: 2.0.0
 created_by: agent
-tags: [cron, briefing, exam, countdown, wechat, messaging, motivation]
+tags: [cron, briefing, exam, countdown, wechat, motivation, on-demand]
 ---
 
-# Exam Countdown Briefing
+# 考试倒计时
 
-Create a daily cron job that generates domain-specific exam countdown briefings with dynamically shifting tone based on remaining days, delivered to the user's messaging platform at a fixed time.
+**核心行为：用户一提"考试倒计时"或类似关键词，立即执行以下步骤生成输出，不得只给说明文档。**
 
-## When to Use
+已知考试信息（来自历史对话）：
+- 考试：中级会计
+- 日期：2026-09-05
+- 领域：财务/会计
 
-- User says "帮我设置一个XX考试倒计时简报" / "create a daily countdown for exam X"
-- User provides: target exam name, exam date, preferred delivery time, delivery platform
-- Any scenario needing daily motivational briefings with time-varying emotional tone
+若用户未提供考试名称和日期，先问清楚再生成。
 
-## Steps
+## 即时生成步骤
 
-### 1. Gather Parameters
+### 1. 计算天数
+
+用 Python 或 shell `date` 命令获取今天日期，计算距考试日的天数差。
+
+### 2. 判断阶段
+
+| 剩余天数 | 阶段标签 | 语气 |
+|----------|----------|------|
+| > 60 | 备考筑基期 | 温和坚定，厚积薄发，底层逻辑构建 |
+| 30–60 | 冲刺瓶颈期 | 心理疏导，抗压，查漏补缺 |
+| 14–30 | 强化突破期 | 聚焦高频考点，针对性突破 |
+| < 14 | 考前决战期 | 热血果断，极简有力 |
+
+### 3. 生成行内段子
+
+完整的会计术语库见 `references/accounting-domain-jargon.md`（80+ 术语 + 分阶段例句 + 通用段子）。
+
+核心术语池：资产负债表、借贷平衡、试算平衡、会计分录、固定资产、无形资产、存货、应收账款、公允价值、减值、短期借款、应付账款、预计负债、营业收入、营业成本、管理费用、合并报表、非货币性资产交换、债务重组、会计政策变更、前期差错更正、在建工程、商誉、实收资本、资本公积、坏账准备、经营现金流
+
+**铁律：** 每句段子必须包含至少一个会计术语，不准用"只要努力就能成功"等空话。
+
+### 4. 输出格式（最终回复即此格式，无额外头尾）
+
+📚 {考试名称} 倒计时
+━━━━━━━━━━━━━━━━━━━━
+⏰ 距考试：{X} 天 【{阶段标签}】
+📅 {YYYY-MM-DD}
+
+💡 今日财会心法：
+{会计术语段子，≤50字}
+
+🔥 倾力助攻：
+{阶段匹配的鼓励语，含会计术语，≤60字}
+
+━━━━━━━━━━━━━━━━━━━━
+📌 备考提示：{一句话建议}
+
+---
+
+## 设置 Cron 定时推送（仅当用户明确要求时）
+
+> 以下内容为参考，用户没提要 cron 就不要主动创建 cron job。
+
+### 步骤 1：收集参数
 
 Ask or extract:
 - **Exam name** (e.g., 会计中级职称 / CFA Level 1 / 法考)
@@ -26,7 +70,7 @@ Ask or extract:
 - **Delivery time** (default: 9:00 AM)
 - **Delivery platform** (default: check user's configured WeChat/Telegram/etc.)
 - **Domain/industry** (for generating domain-specific wisdom — accounting, law, tech, medical, etc.)
-- **Character limit** (default: 400 for WeChat mobile)
+- **Character limit** (default: 400 for WeChat mobile, 1000 for Telegram/CLI)
 
 ### 2. Calculate Phase Thresholds
 
@@ -41,7 +85,7 @@ Use shell `date` to get today's date, then compare to exam date. Define phases:
 
 ### 3. Generate Domain-Specific Wisdom
 
-For each domain, prepare a class of metaphors using industry jargon:
+完整的会计术语映射见 `references/accounting-domain-jargon.md`。各行业语料池：
 
 | Domain | Jargon pool |
 |--------|-------------|
@@ -74,6 +118,8 @@ hermes config set cron.wrap_response false
 
 The prompt must be fully self-contained — cron jobs run with no memory and no user interaction. Structure the prompt:
 
+See `templates/countdown-briefing-example.md` for a real output example (中级会计, 89天/备考筑基期).
+
 ```
 You are a {exam_role}. Generate a daily countdown briefing.
 
@@ -88,21 +134,20 @@ You are a {exam_role}. Generate a daily countdown briefing.
 4. Apply corresponding tone
 
 # Output Format (exact, no preamble/suffix)
-📅 【考试倒计时{角色}】
---------------------------------
-🎯 目标考试：{name}
-⏳ 距考试还剩：{X} 天 【{阶段标签}】
-📅 今日日期：{YYYY-MM-DD}
+📚 {name} 倒计时
+━━━━━━━━━━━━━━━━━━━━
+⏰ 距考试：{X} 天 【{阶段标签}】
+📅 {YYYY-MM-DD}
 
-💡 今日{domain_humor_name}：
-{one domain-joke, ≤50 chars}
+💡 今日{domain}心法：
+{domain joke, ≤50 chars, must contain domain jargon}
 
 🔥 倾力助攻：
-{phase-matched encouragement, ≤60 chars}
+{phase-matched encouragement, ≤60 chars, must contain domain jargon}
 
 # Constraints
 - Total ≤ {char_limit} characters
-- Domain jargon required in each joke
+- Domain jargon required in every sentence
 - No generic motivational platitudes
 - Final response = pure content, no commentary
 ```
@@ -129,7 +174,7 @@ If the cron job generates content (last_status=ok) but delivery fails:
 
 ### 8. WeChat-Specific: When to Abandon Cron Delivery
 
-WeChat's iLink protocol has a fundamental limitation: **the bot can only push messages to the user within ~24 hours of the user's last message to the bot**. After 24h of user inactivity, the session expires and delivery fails (typically showing "rate limited" in the error log, but the root cause is session expiry, not congestion).
+WeChat's iLink protocol has a fundamental limitation: **the bot can only push messages to the user within ~24 hours of the user's last message to the bot**. After 24h of user inactivity, the session expires and delivery fails (typically showing "rate limited" in the error log, but the root cause is session expiry, not congestion). See `references/wechat-24h-session-timeout.md` for full forensics.
 
 **Decision matrix for WeChat cron delivery:**
 
@@ -144,8 +189,8 @@ WeChat's iLink protocol has a fundamental limitation: **the bot can only push me
 ## Pitfalls
 - **Cron delivery wrapping:** By default, cron deliveries wrap content in "cronjob response" header + "--- Hermes --- to stop..." footer. MUST set `cron.wrap_response: false` before creating the job, or the formatted briefing will look ugly on the target platform.
 - **Cron `run` is async:** cronjob(action='run') only queues the job for the next scheduler tick window. To test immediately, temporarily change schedule to 1 minute ahead, wait, then restore.
-- **Cross-profile cron jobs not visible from another profile:** The `cronjob` tool only sees jobs in the CURRENT profile's job store. To modify another profile's cron jobs, directly edit its `jobs.json` (e.g., `~/.hermes/cron/jobs.json` for default, `~/.hermes/profiles/<name>/cron/jobs.json` for named profiles) with `cross_profile=True` on the write.
-- **Cross-profile WeChat accounts:** Each Hermes profile has its own Weixin credentials (`~/.hermes/profiles/<name>/weixin/`). The cron job's delivery uses the WeChat account configured in the profile under which the cron job was created. Verify with `grep WEIXIN_ACCOUNT_ID ~/.hermes/profiles/<name>/.env` and check `WEIXIN_HOME_CHANNEL`.
+- **Cross-profile cron jobs not visible from another profile:** The `cronjob` tool only sees jobs in the CURRENT profile's job store. Default profile cron data: `~/.hermes/cron/jobs.json`. Named profiles: `~/.hermes/profiles/<name>/cron/jobs.json`. To modify another profile's cron jobs, directly edit its `jobs.json` with `cross_profile=True` on the write.
+- **Cross-profile WeChat accounts:** Each Hermes profile has its own Weixin credentials (`~/.hermes/weixin/` for default, `~/.hermes/profiles/<name>/weixin/` for named profiles). The cron job's delivery uses the WeChat account configured in the profile under which the cron job was created. Verify with `grep WEIXIN_ACCOUNT_ID ~/.hermes/.env` or `~/.hermes/profiles/<name>/.env`, and check `WEIXIN_HOME_CHANNEL`.
 - **Date calculation in cron prompt:** Use shell `date` command inside the prompt for dynamic calculation. Do NOT hardcode today's date.
 - **Domain metaphors:** If you don't know the domain well enough, use `web_search` to gather common industry terms/inside jokes before writing the prompt.
 - **Character count:** WeChat mobile renders ~20-25 Chinese chars per line. 400 total chars means ~16-20 lines max. Keep it tight.
@@ -158,3 +203,9 @@ WeChat's iLink protocol has a fundamental limitation: **the bot can only push me
 
 - `daily-briefing` — daily AI/International/Finance news briefing, also uses cron + WeChat delivery. Same delivery infra, different content domain.
 - `hermes-agent` — general cron job creation CLI reference.
+
+## Reference Files
+
+- `templates/countdown-briefing-example.md` — real output example for 中级会计考试 (89天/备考筑基期), with phase-by-phase tone samples
+- `references/accounting-domain-jargon.md` — complete 会计术语映射表和造句原则
+- `references/wechat-24h-session-timeout.md` — WeChat 24h session expiry forensics, distinguishing genuine rate limiting from stale sessions
