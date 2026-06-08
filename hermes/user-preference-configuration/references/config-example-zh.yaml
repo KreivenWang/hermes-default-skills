@@ -1,0 +1,124 @@
+# 中文用户偏好配置示例
+# 适用于使用中文响应的 Hermes Agent 用户
+
+model:
+  api_key: ollama
+  base_url: http://127.0.0.1:8080/v1
+  default: Qwen3.5-9B-Q4_K_M.gguf
+  provider: custom
+
+# 响应显示配置
+display:
+  language: zh-CN              # 中文响应
+  personality: kawaii          # 可爱风格（可选：helpful, technical, concise）
+  show_reasoning: false        # 不显示推理过程
+  show_cost: false             # 不显示 token 成本
+  inline_diffs: false          # 不显示行内 diff
+  timestamps: false            # 不显示时间戳
+  final_response_markdown: strip  # 去除 Markdown，适合终端显示
+  compact: false               # 详细模式
+  streaming: true              # 启用流式输出
+
+# 代理设置
+agent:
+  max_turns: 50                # 最大对话回合数
+  gateway_timeout: 1800        # 网关超时（秒）
+  tool_use_enforcement: auto   # 仅在必要时使用工具
+  verbose: false               # 不显示详细日志
+  environment_probe: true      # 探测环境信息
+
+# 记忆设置
+memory:
+  memory_enabled: true         # 启用记忆
+  user_profile_enabled: true   # 启用用户档案记忆
+  memory_char_limit: 2200      # 记忆字符限制
+  flush_min_turns: 6           # 每 N 回合刷新一次
+
+# 审批设置
+approvals:
+  mode: manual                 # manual/smart/off
+  timeout: 60                  # 审批超时（秒）
+
+# 安全设置
+security:
+  redact_secrets: false        # 是否自动脱敏敏感信息
+  tirith_enabled: true         # 启用 Tirith 安全沙箱
+  website_blocklist:
+    enabled: false
+    domains: []
+
+# 辅助工具配置（需要设置语言）
+auxiliary:
+  vision:
+    provider: auto
+    timeout: 120
+  web_extract:
+    provider: auto
+    timeout: 360
+    extra_body:
+      language: zh-CN          # 提取内容时识别中文
+  session_search:
+    provider: auto
+    timeout: 30
+    language: zh-CN            # 搜索会话时使用中文
+    max_concurrency: 3
+
+# 模型提供商配置
+custom_providers:
+  - name: Local (127.0.0.1:8080)
+    base_url: http://127.0.0.1:8080/v1
+    model: Qwen3.5-9B-Q4_K_M.gguf
+
+# 终端配置
+terminal:
+  backend: local
+  timeout: 180
+  cwd: .
+  persistent_shell: true
+
+# MCP Server 配置示例
+# 注意：MCP 配置在 hermes mcp add 后自动保存
+# 可在此列出已添加的 MCP Server：
+# mcp_servers:
+#   - name: hermes-cn
+#     url: https://mcp.hermesagent.org.cn/v1
+#     tools:
+#       - search_docs
+#       - get_doc
+#       - list_recent_releases
+
+# TTS/STT 配置
+tts:
+  provider: edge
+  edge:
+    voice: zh-CN-XiaoxiaoNeural  # 中文语音
+
+stt:
+  enabled: true
+  provider: local
+  local:
+    model: base
+    language: zh-CN
+
+# 会话管理
+sessions:
+  auto_prune: true
+  retention_days: 90
+  min_interval_hours: 24
+
+# 压缩设置
+compression:
+  enabled: true
+  threshold: 0.5
+  target_ratio: 0.2
+
+# 检查点设置
+checkpoints:
+  enabled: true
+  max_snapshots: 50
+
+# 网关配置
+gateway:
+  strict: false
+  trust_recent_files: true
+  media_delivery_allow_dirs: []
