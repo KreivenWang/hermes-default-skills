@@ -1,7 +1,7 @@
 ---
 name: daily-briefing
 description: "每日简报：AI + 国际 + 金融，每类3条，每条30-50字带链接。"
-version: 2.3.0
+version: 2.4.0
 author: Hermes Agent
 tags: [briefing, finance, ai-news, international, news-scraping]
 ---
@@ -127,6 +127,8 @@ python3 scripts/fetch_sources.py list         # 列出所有可用来源
 ## 参考文件
 
 - `references/sources-reference.md` — 全部 15 个 curl 可访问源 + 4 个 web_search 源的提取方法、速度、注意点详细说明
+- `references/source-accessibility.md` — 每个源的提取函数和性能评测
+- `references/source-testing-methodology.md` — 如何测试新来源的 curl 可访问性（判断树 + 三阶段提取模式）
 - `references/chinese-sources.md` — 中文 AI 来源可访问性指南
 - `scripts/fetch_sources.py` — 抓取脚本（v2，15 个源）
 
