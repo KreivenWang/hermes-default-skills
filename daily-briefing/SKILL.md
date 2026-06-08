@@ -126,11 +126,7 @@ python3 scripts/fetch_sources.py list         # 列出所有可用来源
 
 ## 参考文件
 
-- `references/sources-reference.md` — 全部 15 个 curl 可访问源 + 4 个 web_search 源的提取方法、速度、注意点详细说明
-- `references/source-accessibility.md` — 每个源的提取函数和性能评测
-- `references/source-testing-methodology.md` — 如何测试新来源的 curl 可访问性（判断树 + 三阶段提取模式）
-- `references/chinese-sources.md` — 中文 AI 来源可访问性指南
-- `scripts/fetch_sources.py` — 抓取脚本（v2，15 个源）
+- `references/sources-reference.md` — 全部 15 个 curl 可访问源 + 4 个 web_search 源的提取方法、速度、注意点详细说明\n- `references/source-testing-methodology.md` — 如何测试新来源的 curl 可访问性（判断树 + 三阶段提取模式 + 每站过滤规则 + 集成到脚本）\n- `references/chinese-sources.md` — 中文 AI 来源可访问性指南\n- `scripts/fetch_sources.py` — 抓取脚本（v2，15 个源）
 
 ## 铁律
 
@@ -139,4 +135,5 @@ python3 scripts/fetch_sources.py list         # 列出所有可用来源
 - **URL 必须来自实际访问过的页面，严禁编造** — 先用 curl/web_search 验证链接存在再引用
 - 不写"今日""据悉""据报道""值得关注的是"——直接说事，动词开头
 - 国际和金融选当日最热最重要的，**不限 AI 领域**
-- **没有论文板块，没有 ---Hermes--- 结尾**，最终回复即纯内容
+- **没有论文板块，没有 ---Hermes--- 结尾**
+- **纯内容投递**：最终回复只能是简报本身，前面不加任何说明文字（如已保存至...、字数统计、策略说明等），后面也不加来源分析或工作注释
