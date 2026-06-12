@@ -37,10 +37,11 @@ def extract_h2h3(html: str, base_url: str) -> list[dict]:
     """从 h2/h3 内的 <a> 提取标题+URL"""
     items = []
     for m in re.finditer(r'<h[23][^>]*>.*?<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', html, re.DOTALL):
+        link = m.group(1)
+        raw = m.group(2)
+        title = re.sub(r'<[^>]+>', '', raw).strip()
         title = title.replace('&#x27;', "'").replace('&amp;', '&')
         title = title.replace('&#x20;', ' ').replace('&quot;', '"')
-        title = title.replace('\u201c', '"').replace('\u201d', '"')
-        title = title.replace('\u201c', '"').replace('\u201d', '"')        title = title.replace('\u201c', '"').replace('\u201d', '"')
         if not title or len(title) < 15 or len(title) > 150:
             continue
         if any(x in link.lower() for x in ['logo', 'javascript', '#']):

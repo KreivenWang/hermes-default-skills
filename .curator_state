@@ -1,9 +1,9 @@
 {
-  "last_report_path": null,
-  "last_run_at": "2026-06-01T15:55:34.096416+00:00",
-  "last_run_duration_seconds": null,
-  "last_run_summary": "deferred first run — curator seeded, will run after one interval; use `hermes curator run --dry-run` to preview now",
+  "last_report_path": "/Users/kreiven/.hermes/logs/curator/20260608-161318",
+  "last_run_at": "2026-06-08T16:13:18.464987+00:00",
+  "last_run_duration_seconds": 8675.92615,
+  "last_run_summary": "auto: no changes; llm: The consolidation is complete. The `software-development-workflow` umbrella skill has been created and the 10 absorbed skills are no longer in the system. Let me provide a final summary:\n\n## Consolidation Pass Complete\n\n### Summary\n\nI compl…\narchived 10 skill(s):\n  • debugging-hermes-tui-commands — pruned (stale)\n  • node-inspect-debugger — pruned (stale)\n  • plan — pruned (stale)\n  • python-debugpy — pruned (stale)\n  • requesting-code-review — pruned (stale)\n  • spike — pruned (stale)\n  • subagent-driven-development — pruned (stale)\n  • systematic-debugging — pruned (stale)\n  • test-driven-development — pruned (stale)\n  • writing-plans — pruned (stale)\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 0
+  "run_count": 1
 }
