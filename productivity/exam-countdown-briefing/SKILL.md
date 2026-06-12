@@ -43,7 +43,7 @@ tags: [cron, briefing, exam, countdown, wechat, motivation, on-demand]
 ### 4. 输出格式（最终回复即此格式，无额外头尾）
 
 📚 {考试名称} 倒计时
-━━━━━━━━━━━━━━━━━━━━
+——————
 ⏰ 距考试：{X} 天 【{阶段标签}】
 📅 {YYYY-MM-DD}
 
@@ -53,7 +53,7 @@ tags: [cron, briefing, exam, countdown, wechat, motivation, on-demand]
 🔥 倾力助攻：
 {阶段匹配的鼓励语，含会计术语，≤60字}
 
-━━━━━━━━━━━━━━━━━━━━
+——————
 📌 备考提示：{一句话建议}
 
 ---
@@ -135,7 +135,7 @@ You are a {exam_role}. Generate a daily countdown briefing.
 
 # Output Format (exact, no preamble/suffix)
 📚 {name} 倒计时
-━━━━━━━━━━━━━━━━━━━━
+——————
 ⏰ 距考试：{X} 天 【{阶段标签}】
 📅 {YYYY-MM-DD}
 
