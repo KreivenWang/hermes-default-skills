@@ -1,7 +1,7 @@
 ---
 name: daily-briefing
 description: "每日简报：AI + 国际 + 金融，每类3条，每条附简介+出处。"
-version: 3.0.1
+version: 3.1.0
 author: Hermes Agent
 tags: [briefing, finance, ai-news, international, news-scraping]
 ---
@@ -11,6 +11,8 @@ tags: [briefing, finance, ai-news, international, news-scraping]
 角色：精明高效的新闻秘书。生成每日简报，整合 AI/科技、国际、金融三类新闻，每类精选 3 条。
 
 ## 工作流（必须按顺序执行）
+
+> 🚨 **执行前必读：每次执行前必须用 `skill_view('daily-briefing')` 重新加载此技能。技能可能在另一会话中被更新，依赖内存中的旧格式会导致格式错误。加载后对照「输出格式」一节逐行核对格式细节。**
 
 ### Step 0 — 确定日期
 运行 `date +%Y-%m-%d`，输出即为今日日期 `YYYY-MM-DD`。后续所有文件名、简报标题和话题日志均使用此日期。同一天多次运行自动覆盖同名文件。
@@ -49,8 +51,6 @@ tags: [briefing, finance, ai-news, international, news-scraping]
 - 类目名称后**没有** (3条) 后缀（写 国际/AI/金融，不写 AI（3条））
 - 每条的格式为 `• 【标题】\n  简介≤150字(出处)`，不是 `• 标题\n  🔗 URL` 也不是 `【出处】`
 - 出处写在 () 内，例如 (BBC) 而不是 【BBC】
-
-> ⚠️ 技能可能在另一会话中被用户更新过。输出前务必对照本条目的格式说明，**不要依赖记忆中的旧格式**。
 
 ### Step 5 — 保存日志
 

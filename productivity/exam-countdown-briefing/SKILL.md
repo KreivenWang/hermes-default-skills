@@ -1,7 +1,7 @@
 ---
 name: exam-countdown-briefing
 description: "考试倒计时：当用户询问考试倒计时时，立即用 Python 计算剩余天数并生成倒计时简报。也支持设置 cron 定时推送。"
-version: 2.0.0
+version: 2.1.0
 created_by: agent
 tags: [cron, briefing, exam, countdown, wechat, motivation, on-demand]
 ---
@@ -9,6 +9,8 @@ tags: [cron, briefing, exam, countdown, wechat, motivation, on-demand]
 # 考试倒计时
 
 **核心行为：用户一提"考试倒计时"或类似关键词，立即执行以下步骤生成输出，不得只给说明文档。**
+
+> 🚨 **执行前必读：每次执行前必须用 `skill_view('exam-countdown-briefing')` 重新加载此技能。技能格式可能在另一会话中被更新（如分隔符、标签、emoji），依赖内存中的旧格式会导致输出与最新版本不符。**
 
 已知考试信息（来自历史对话）：
 - 考试：中级会计
