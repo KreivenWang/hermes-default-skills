@@ -1,7 +1,7 @@
 ---
 name: daily-briefing
 description: "每日简报：AI + 国际 + 金融，每类3条，每条附简介+出处。"
-version: 3.1.0
+version: 3.2.0
 author: Hermes Agent
 tags: [briefing, finance, ai-news, international, news-scraping]
 ---
@@ -170,9 +170,10 @@ AI | 【Wired】https://...
 | **BBC** | bbc.com/news | 国际 | ✅ 稳定可靠 |
 | **NPR** | npr.org/sections/news | 国际 | ✅ 美国公共广播 |
 | **SCMP** | scmp.com/news | 国际 | ✅ 亚洲视角 |
-| **CNBC** | cnbc.com/markets | 金融 | ✅ 全球市场 |
-| **Business Insider** | businessinsider.com/markets | 金融 | ✅ 华尔街分析 |
-| **Yahoo Finance** | finance.yahoo.com | 金融 | ✅ 市场快讯 |
+| **BBC Business** | bbc.com/news/business | 金融 | ✅ 可靠金融备选，curl可提取标题（见下方注意：文章ID为随机字符串，需批查） |
+| **CNBC** | cnbc.com/markets | 金融 | ⚠️ 偶发Edge CDN屏蔽，curl可能返回Access Denied，此时用BBC Business替代 |
+| **Business Insider** | businessinsider.com/markets | 金融 | ✅ 华尔街分析，og:description提取有时不一致需fallback到<title> |
+| **Yahoo Finance** | finance.yahoo.com | 金融 | ⚠️ JS渲染，curl大部分情况返回空，优先用BBC Business或BI |
 
 ### 需要 web_search / browser（JS 渲染或反爬）
 | 来源 | URL | 说明 |
@@ -202,7 +203,32 @@ python3 scripts/fetch_sources.py list         # 列出所有可用来源
 
 输出 JSON Lines，每行 `{"source":"leiphone","title":"...","url":"..."}`。
 
-**性能说明：** BBC 每条 URL 需单独请求获取 og:title（约 2-3 秒/条）。leiphone / arstechnica / techcrunch / cnbc 等单次 HTML 请求即可提取所有标题，快得多（< 2 秒/源）。
+**性能说明：** BBC 每条 URL 需单独请求获取 og:title（约 2-3 秒/条）。leiphone / arstechnica / techcrunch 等单次 HTML 请求即可提取所有标题，快得多（< 2 秒/源）。
+
+## 已知陷阱
+
+### BBC 随机字符串文章 ID
+BBC 文章 URL 使用不可预测的随机 ID（如 `/news/articles/c77y47248k4o`），无法从标题反推 URL。当需要定位 BBC 金融/国际某篇特定文章时：
+1. 先用 `curl` 抓分类页（`bbc.com/news/business` 或 `bbc.com/news`）提取所有 `<a href="/news/articles/...">` 链接
+2. 逐个 `curl` 获取每个 ID 的 `<title>` 来匹配你需要的标题
+3. 找到匹配后再用 `og:description` 提取简介
+
+**⚠️ 每次最多 curl 3-4 个 BBC 文章 ID**，连续请求 5+ 个会导致 `BLOCKED: timeout`。分批次进行，每批后 pause。
+
+### CNBC Access Denied
+CNBC 使用 Edge CDN 保护，curl 会被拦截返回 `<TITLE>Access Denied</TITLE>`（状态码 403）。遇到时：
+- 金融类备选：BBC Business → 提取标题匹配 → 定位文章
+- 不可用 curl 硬碰，改用 web_search 或跳过
+
+### Yahoo Finance JS 渲染
+Yahoo Finance 页面基本由 JS 驱动，curl 返回的 HTML 极少包含文章内容。og:description 和 `<title>` 常常为空。金融源备选优先级：
+BBC Business > Business Insider > (放弃该源换不同来源)
+
+### 顺序 curl 超时风险
+在 Step 3 验证文章内容时，逐条 `curl` 获取描述信息很容易触发 60s+ 超时。规则：
+- 同一分类内优先并行提取（分散到多个 terminal 调用）
+- 绝不要在一个 terminal 命令中串行 curl 超过 4 个 URL
+- 如果 timeoout 频发，减少验证数量或利用已有 fetch 数据直接编写简介
 
 ## 参考文件
 
