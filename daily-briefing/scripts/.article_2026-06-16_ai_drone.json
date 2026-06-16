@@ -1,0 +1,182 @@
+{
+  "date": "2026-06-16",
+  "event_date": "2026-06-15",
+  "title": "AI自主无人机首次实战击杀：终结者模式背后的技术真相",
+  "author": "简报",
+  "digest": "乌克兰证实全球首次完全自主AI无人机在无人工干预下击杀作战人员。10架无人机开启终结者模式，AI自主识别目标、自主决策、自主攻击——人类不再在回路中。",
+  "source_declaration": "本文素材来源：New Scientist、Ars Technica、TechCrunch、Arms Control Association",
+  "sections": [
+    {
+      "type": "text",
+      "content": "科幻电影里的场景，已经真实上演了。"
+    },
+    {
+      "type": "text",
+      "content": "**New Scientist** 独家报道，乌克兰国防工业一位高级负责人 **Alexander Kokhanovskyy** 证实，该国在实战中测试了 **10架完全自主的AI无人机** ——从起飞到锁定目标再到发动攻击，全程 ==没有人类参与决策==。这些无人机开启了所谓的「终结者模式」，AI模型自主搜索、识别并击杀目标。这是人类战争史上，首次由机器在没有人类监督的情况下自主决定夺走生命。"
+    },
+    {
+      "type": "datacard",
+      "items": [
+        {
+          "value": "10",
+          "label": "测试无人机数量",
+          "color": "red"
+        },
+        {
+          "value": "3-5km",
+          "label": "单次任务飞行距离",
+          "color": "blue"
+        },
+        {
+          "value": "10min",
+          "label": "从升空到攻击窗口",
+          "color": "purple"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "Kokhanovskyy 的描述令人不安。「我们只管发射，然后知道那片区域里的一切都会被消灭。没有和无人机的连接，你看不到视频，什么都看不到。==它所看到的一切都会被击杀==。」这10架四旋翼无人机被编程为飞向战线前方，覆盖 **3 至 5 公里**，大约 **10 分钟**后进入终结者模式——AI开始自主搜索并拦截目标。"
+    },
+    {
+      "type": "quote",
+      "content": "我们只管发射，然后知道那片区域里的一切都会被消灭。没有和无人机的连接，你看不到视频，什么都看不到。它所看到的一切都会被击杀。"
+    },
+    {
+      "type": "heading",
+      "content": "技术解析AI如何做生死决策"
+    },
+    {
+      "type": "text",
+      "content": "目前战场上广泛使用的FPV穿越机仍由人类全程操控——操作员通过头显观看实时画面，手动引导无人机撞击目标。**真正意义上的自主武器** 完全不同：机载AI模型预先加载目标识别算法（通常基于计算机视觉 + 深度学习），起飞后就 ==完全断开通信链路==，不存在图传延迟、信号干扰、操作失误等问题。无人机在预定区域内自主扫描，将传感器数据与训练库中的军事目标特征比对，一旦匹配即自动执行攻击。"
+    },
+    {
+      "type": "text",
+      "content": "这套系统的技术核心在于~~边缘AI计算~~——推理在无人机机载芯片上完成，不需要回传云端决策。这意味着电子干扰对它无效，因为根本不存在需要干扰的通信链路。从技术角度看，这是**真正的AI应用落地**；从伦理角度看，这是一个危险的先例。"
+    },
+    {
+      "type": "heading",
+      "content": "从半自主到全自主的进化之路"
+    },
+    {
+      "type": "timeline",
+      "items": [
+        {
+          "phase": "2012",
+          "title": "人类在回路中",
+          "desc": "美军发布3000.09指令，要求自主武器必须有有意义的人类控制"
+        },
+        {
+          "phase": "2020",
+          "title": "人类在环上",
+          "desc": "AI辅助目标识别，但人类仍需确认攻击。实际操控权开始模糊"
+        },
+        {
+          "phase": "2024",
+          "title": "真正自主测试",
+          "desc": "乌克兰部署10架完全自主无人机，无人干预下完成击杀"
+        },
+        {
+          "phase": "2026",
+          "title": "监管临界点",
+          "desc": "联合国2026年最后期限逼近，大国博弈仍在继续"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "效率与风险的极限博弈"
+    },
+    {
+      "type": "compare",
+      "sides": [
+        {
+          "icon": "⚡",
+          "title": "支持自主化",
+          "points": [
+            "AI反应速度远超人类，毫秒级决策",
+            "减少操作员的战场心理创伤",
+            "通信链路断开后仍可作战，抗干扰"
+          ],
+          "color": "blue"
+        },
+        {
+          "icon": "⚠️",
+          "title": "反对意见",
+          "points": [
+            "AI无法可靠区分平民和作战人员",
+            "机器决定生死突破了伦理底线",
+            "可能引发AI军备竞赛，降低战争门槛"
+          ],
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "type": "highlights",
+      "items": [
+        {
+          "title": "困境一",
+          "content": "区分能力：AI能否识别投降或受伤的士兵？",
+          "color": "red"
+        },
+        {
+          "title": "困境二",
+          "content": "责任归属：机器杀人，谁来负责？",
+          "color": "purple"
+        },
+        {
+          "title": "困境三",
+          "content": "扩散风险：核心代码一旦公开，恐怖组织也能用",
+          "color": "blue"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "联合国监管推进缓慢"
+    },
+    {
+      "type": "text",
+      "content": "早在2014年，联合国就开始讨论~~致命性自主武器系统（LAWS）~~的监管问题。**156个联合国成员国**支持制定具有法律约束力的国际条约，**2026年** 被设为谈判的最后期限。然而核心大国——美国、俄罗斯、中国——对全面禁令持保留态度，认为自主武器在某些场景下具有军事必要性。"
+    },
+    {
+      "type": "infobox",
+      "style": "warning",
+      "title": "📊 2026年现状",
+      "content": "156国支持联合国LAWS决议·300+公民社会组织加入Stop Killer Robots联盟·联合国政府专家组2026年3月日内瓦会议仍在讨论基本原则·尚未达成具有法律约束力的条约"
+    },
+    {
+      "type": "text",
+      "content": "乌克兰这次测试的结果，某种程度上验证了技术终究跑在了规则前面。Kokhanovskyy 强调这次只是「==一次性的测试==」，并未大规模部署。但一旦技术被证明可行，其他国家完全有能力在短期内复制。全球AI军备竞赛的潘多拉魔盒，已经打开了一条缝。"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "text",
+      "content": "~~自主武器的核心悖论~~：人类开发AI来更快地做决策，然后发现最快的决策是——不再需要人类。"
+    }
+  ],
+  "image_sources": [
+    "https://images.newscientist.com/wp-content/uploads/2026/06/10104553/SEI_300076919.jpg"
+  ],
+  "source_links": [
+    {
+      "source": "New Scientist",
+      "url": "https://www.newscientist.com/article/2529849-fully-autonomous-drones-have-killed-human-soldiers-for-the-first-time"
+    },
+    {
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/06/ukraines-one-time-test-used-fully-autonomous-drones-to-kill-russian-soldiers/"
+    },
+    {
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/06/15/sundar-pichai-faces-boos-walkout-at-stanford-graduation-ceremony-over-googles-israel-ice-ties/"
+    },
+    {
+      "source": "Arms Control Association",
+      "url": "https://www.armscontrol.org/act/2025-01/features/geopolitics-and-regulation-autonomous-weapons-systems"
+    }
+  ]
+}

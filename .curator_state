@@ -1,8 +1,8 @@
 {
-  "last_report_path": "/Users/kreiven/.hermes/logs/curator/20260608-161318",
+  "last_report_path": "/Users/kreiven/.hermes/logs/curator/20260616-040309",
   "last_run_at": "2026-06-16T04:03:09.824441+00:00",
-  "last_run_duration_seconds": 8675.92615,
-  "last_run_summary": "auto: no changes",
+  "last_run_duration_seconds": 7352.606762,
+  "last_run_summary": "auto: no changes; llm: So there are 71 active skill directories. Now let me create the structured summary. Based on my analysis, I consolidated the following skills:\n\n**Consolidations (14 skills consolidated into umbrella skills):**\n\n1. **GitHub cluster:** 5 skil…\narchived 12 skill(s):\n  • baoyu-infographic — pruned (stale)\n  • evaluating-llms-harness — pruned (stale)\n  • github-auth — pruned (stale)\n  • github-code-review — pruned (stale)\n  • github-issues — pruned (stale)\n  • github-pr-workflow — pruned (stale)\n  • github-repo-management — pruned (stale)\n  • huggingface-hub — pruned (stale)\n  • llama-cpp — pruned (stale)\n  • obliteratus — pruned (stale)\n  … and 2 more\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
   "run_count": 2

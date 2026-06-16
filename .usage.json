@@ -56,13 +56,13 @@
     "created_at": "2026-06-08T16:13:21.351008+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:16:54.550197+00:00",
+    "last_viewed_at": "2026-06-16T05:16:54.547043+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "ascii-art": {
     "archived_at": null,
@@ -103,45 +103,6 @@
     "use_count": 0,
     "view_count": 0
   },
-  "axolotl": {
-    "archived_at": null,
-    "created_at": "2026-06-08T18:02:40.202618+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-08T18:02:40.228976+00:00",
-    "last_viewed_at": "2026-06-08T18:02:40.203010+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
-  "baoyu-article-illustrator": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.377902+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:44:33.687715+00:00",
-    "last_viewed_at": "2026-06-16T04:44:33.686189+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
-  "baoyu-comic": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.380923+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "baoyu-image-generation": {
     "archived_at": null,
     "created_at": "2026-06-16T04:46:25.251917+00:00",
@@ -155,31 +116,18 @@
     "use_count": 1,
     "view_count": 1
   },
-  "baoyu-infographic": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.383388+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:10:18.867262+00:00",
-    "last_viewed_at": "2026-06-16T04:10:18.863768+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
   "blogwatcher": {
     "archived_at": null,
     "created_at": "2026-06-08T16:13:21.385618+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:16:54.552450+00:00",
+    "last_viewed_at": "2026-06-16T05:16:54.549025+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "claude-code": {
     "archived_at": null,
@@ -199,13 +147,13 @@
     "created_at": "2026-06-08T16:13:21.411852+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:11:34.638996+00:00",
-    "last_viewed_at": "2026-06-16T04:11:34.637564+00:00",
+    "last_used_at": "2026-06-16T05:01:18.396368+00:00",
+    "last_viewed_at": "2026-06-16T05:01:18.395097+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "codebase-inspection": {
     "archived_at": null,
@@ -277,13 +225,13 @@
     "created_at": "2026-06-08T16:13:21.443001+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:16:10.061117+00:00",
+    "last_viewed_at": "2026-06-16T05:16:10.059682+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "dogfood": {
     "archived_at": null,
@@ -303,26 +251,26 @@
     "created_at": "2026-06-08T16:13:21.447342+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:53:18.724427+00:00",
+    "last_viewed_at": "2026-06-16T05:53:18.691834+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "evaluating-llms-harness": {
     "archived_at": null,
     "created_at": "2026-06-08T16:13:21.449577+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:38:31.168645+00:00",
+    "last_viewed_at": "2026-06-16T05:38:31.164759+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "exam-countdown-briefing": {
     "archived_at": null,
@@ -433,13 +381,13 @@
     "created_at": "2026-06-08T01:39:11.698003+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:13:04.146694+00:00",
-    "last_viewed_at": "2026-06-16T04:13:04.141166+00:00",
+    "last_used_at": "2026-06-16T05:42:24.878740+00:00",
+    "last_viewed_at": "2026-06-16T05:42:24.872886+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -480,31 +428,18 @@
     "use_count": 0,
     "view_count": 0
   },
-  "huggingface-hub": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.507031+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "humanizer": {
     "archived_at": null,
     "created_at": "2026-06-08T16:13:21.508450+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:02:23.793626+00:00",
+    "last_viewed_at": "2026-06-16T05:02:23.792507+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "ideation": {
     "archived_at": null,
@@ -597,31 +532,18 @@
     "use_count": 0,
     "view_count": 0
   },
-  "llama-cpp": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.541154+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-08T18:03:33.074404+00:00",
-    "last_viewed_at": "2026-06-08T18:03:33.069851+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 2,
-    "view_count": 2
-  },
   "llm-fine-tuning": {
     "archived_at": null,
     "created_at": "2026-06-16T04:09:20.115089+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:09:20.117631+00:00",
-    "last_viewed_at": "2026-06-16T04:09:20.115095+00:00",
+    "last_used_at": "2026-06-16T05:32:21.086505+00:00",
+    "last_viewed_at": "2026-06-16T05:32:21.085029+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "llm-inference": {
     "archived_at": null,
@@ -740,19 +662,6 @@
     "use_count": 0,
     "view_count": 0
   },
-  "obliteratus": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.575338+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 0,
-    "view_count": 0
-  },
   "obsidian": {
     "archived_at": null,
     "created_at": "2026-06-08T16:13:21.598402+00:00",
@@ -849,26 +758,26 @@
     "created_at": "2026-06-08T16:13:21.611145+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-16T05:16:54.553526+00:00",
+    "last_viewed_at": "2026-06-16T05:16:54.551414+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "popular-web-designs": {
     "archived_at": null,
     "created_at": "2026-06-08T16:13:21.612205+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-16T04:10:18.868498+00:00",
-    "last_viewed_at": "2026-06-16T04:10:18.866092+00:00",
+    "last_used_at": "2026-06-16T05:00:32.229103+00:00",
+    "last_viewed_at": "2026-06-16T05:00:32.227968+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "powerpoint": {
     "archived_at": null,
@@ -1039,19 +948,6 @@
     "use_count": 0,
     "view_count": 0
   },
-  "unsloth": {
-    "archived_at": null,
-    "created_at": "2026-06-08T18:02:40.226344+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-08T18:02:40.231369+00:00",
-    "last_viewed_at": "2026-06-08T18:02:40.226357+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
-  },
   "user-preference-configuration": {
     "archived_at": null,
     "created_at": "2026-06-02T12:09:06.537877+00:00",
@@ -1082,27 +978,14 @@
     "archived_at": null,
     "created_at": "2026-06-16T04:26:52.090267+00:00",
     "created_by": null,
-    "last_patched_at": "2026-06-16T04:44:04.289718+00:00",
-    "last_used_at": "2026-06-16T04:44:10.469340+00:00",
-    "last_viewed_at": "2026-06-16T04:44:10.467050+00:00",
-    "patch_count": 9,
+    "last_patched_at": "2026-06-16T06:04:05.004235+00:00",
+    "last_used_at": "2026-06-16T06:04:01.255949+00:00",
+    "last_viewed_at": "2026-06-16T06:04:01.255066+00:00",
+    "patch_count": 18,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
-    "view_count": 5
-  },
-  "weights-and-biases": {
-    "archived_at": null,
-    "created_at": "2026-06-08T16:13:21.784781+00:00",
-    "created_by": null,
-    "last_patched_at": null,
-    "last_used_at": "2026-06-08T18:03:33.072119+00:00",
-    "last_viewed_at": "2026-06-08T18:03:33.066399+00:00",
-    "patch_count": 0,
-    "pinned": false,
-    "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 12,
+    "view_count": 12
   },
   "weixin-gateway": {
     "archived_at": null,

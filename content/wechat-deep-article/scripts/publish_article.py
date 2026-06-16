@@ -320,11 +320,13 @@ def build_article_html(article_data, wx_image_urls):
                 )
             for i, item in enumerate(items):
                 clr = colors[i % len(colors)]
+                phase_txt = str(item["phase"])
+                dot_size = max(24, len(phase_txt) * 11)
                 tl_html += (
                     f'<div style="margin-bottom:16px;position:relative;">'
-                    f'<div style="position:absolute;left:-22px;top:2px;width:18px;height:18px;'
-                    f'border-radius:50%;background:{clr};color:#fff;font-size:9px;font-weight:700;'
-                    f'display:flex;align-items:center;justify-content:center;">{h(item["phase"])}</div>'
+                    f'<div style="position:absolute;left:-22px;top:2px;width:{dot_size}px;height:{dot_size}px;'
+                    f'border-radius:50%;background:{clr};color:#fff;font-size:11px;font-weight:700;'
+                    f'display:flex;align-items:center;justify-content:center;">{h(phase_txt)}</div>'
                     f'<div style="font-size:12px;color:{clr};font-weight:600;">{h(item["title"])}</div>'
                     f'<div style="font-size:13px;color:{TEXT_DESC};line-height:1.5;margin-top:2px;">{h(item["desc"])}</div>'
                     f'</div>'

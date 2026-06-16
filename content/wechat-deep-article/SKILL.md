@@ -1,7 +1,7 @@
 ---
 name: wechat-deep-article
 description: "公众号深度分析文章工作流：从每日简报选一个安全话题，写深度分析文章，生成图文并推送到草稿箱。"
-version: 1.2.0
+version: 1.3.0
 author: Hermes Agent
 tags: [wechat, article, analysis, deep-dive, content, publishing]
 ---
@@ -45,6 +45,10 @@ tags: [wechat, article, analysis, deep-dive, content, publishing]
 
 确认不在安全红线列表中。
 
+**同日内去重**：在选话题前，先检查 `scripts/.article_YYYY-MM-DD_*.json` 是否存在。如果当天已有已写好的文章 JSON（如 `.article_2026-06-16_fox_roku.json`），跳过该话题——不要在同一天对同一批简报内容写两篇深度文。
+
+**跨天去重**：检查 `references/YYYY-MM-DD-topics.md`（前一天的简报话题），排除上一期已有深度文的核心话题。用户对「昨天消息今天又深挖」敏感。
+
 ### 格式化约定（每次写文章必须遵守）
 
 输出作者为**「简报」**（不要带 "Hermes " 前缀）。
@@ -71,27 +75,63 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
 - 相关公司/人物 · 国内外对比
 - 图片素材（从新闻原文 og:image 获取，备选 Unsplash）
 
-### Step 4 — 撰写文章并保存为 JSON
-按以下结构写文章，保存到 `scripts/.article_YYYY-MM-DD_topic.json`
+### Step 4 — 规划模块节奏（写作前必须先做）
+**在写任何正文之前**，先规划文章的「模块节奏」——决定每段用什么类型。用户明确批评过纯 `text` 段落连篇的格式。
+
+参考 `references/rich-format-modules.md` 的"模块编排建议"章节，按以下思路规划：
+
+```
+开篇 → datacard 抛核心数字（让读者第一眼看到关键数据）
+引言 → text 段落引入主题
+背景 → timeline / text 解释背景
+分析 → compare / text 做对比分析
+要点 → highlights 罗列风险/关键点
+补充 → infobox 放补充信息/数据
+结论 → quote 金句收尾
+```
+
+**必须遵守的节奏规则：**
+- 1 篇 12-16 段文章，至少 4-6 段用富文本模块（不含 heading）
+- 至少使用 **3 种不同类型**的富文本模块
+- 核心数字用 `datacard`，阶段列举用 `timeline`，正反对比用 `compare`，要点罗列用 `highlights`
+
+### Step 5 — 撰写文章并保存为 JSON
+按规划好的模块节奏写文章，保存到 `scripts/.article_YYYY-MM-DD_topic.json`
 
 ```json
 {
-  "date": "2026-06-13",
-  "title": "Mistral 估值翻倍冲200亿€，欧洲AI终于等来了自己的「OpenAI」？",
-  "author": "Hermes 简报",
-  "digest": "一句话摘要，100字以内",
-  "source_declaration": "本文素材来源：TechCrunch、Bloomberg、CNBC、Reuters",
+  "date": "2026-06-16",
+  "event_date": "2026-06-15",
+  "title": "Fox花220亿美元买下Roku：流媒体战争进入「抢屏幕」时代",
+  "author": "简报",
+  "digest": "摘要，可用 ==橙色高亮== 强调核心词",
   "sections": [
-    {"type": "text", "content": "正文段落"},
-    {"type": "heading", "content": "小标题"},
-    {"type": "text", "content": "正文段落"}
+    {"type": "datacard", "items": [
+      {"value": "220亿", "label": "收购价", "color": "purple"},
+      {"value": "-17%", "label": "股价跌幅", "color": "red"}
+    ]},
+    {"type": "text", "content": "首段正文，支持**蓝色** ==橙色== ~~紫色~~ 三色高亮"},
+    {"type": "heading", "content": "小标题（自动配 emoji）"},
+    {"type": "timeline", "items": [
+      {"phase": "1", "title": "阶段名称", "desc": "描述文字"}
+    ]},
+    {"type": "quote", "content": "金句引用，居中大号装饰引号"},
+    {"type": "compare", "sides": [
+      {"icon": "❌", "title": "A路径", "points": ["缺点1", "缺点2"], "color": "blue"},
+      {"icon": "✅", "title": "B路径", "points": ["优点1", "优点2"], "color": "green"}
+    ]},
+    {"type": "infobox", "style": "warning", "title": "📎 标题", "content": "补充信息"},
+    {"type": "highlights", "items": [
+      {"title": "要点一", "content": "描述", "color": "red"}
+    ]},
+    {"type": "divider"},
+    {"type": "list", "content": "项1\n项2\n项3"}
   ],
   "image_sources": [
-    "https://...og-image-1.jpg",
-    "https://...og-image-2.jpg"
+    "https://...og-image.jpg"
   ],
   "source_links": [
-    {"source": "TechCrunch", "url": "https://..."}
+    {"source": "来源名", "url": "https://..."}
   ]
 }
 ```
@@ -139,9 +179,14 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
 - 引数据标注来源，非原创的判断句要清晰（用"据X报道"或直接标注）
 - 分析框架、叙事结构、衔接转承是原创部分，不需要标来源
 
-### Step 5 — 发布到草稿箱
+### Step 6 — 发布到草稿箱
 ```bash
 python3 scripts/publish_article.py scripts/.article_YYYY-MM-DD_topic.json
+```
+
+支持两种路径写法：在技能目录下用相对路径，或从任何位置用绝对路径：
+```bash
+python3 /abs/path/to/publish_article.py /abs/path/to/.article_YYYY-MM-DD_topic.json
 ```
 
 脚本自动完成：
@@ -152,7 +197,7 @@ python3 scripts/publish_article.py scripts/.article_YYYY-MM-DD_topic.json
 5. 调用 draft/add 创建草稿
 6. 保存本地 HTML 副本到 `scripts/.article_output/`
 
-### Step 6 — 提供来源链接给用户
+### Step 7 — 提供来源链接给用户
 发布成功后，用户需要在微信的发布弹窗中手动填写「创作来源声明」。
 **不要**把声明写在文章 HTML 里——那是微信发布前弹出的独立填写栏。
 
@@ -161,7 +206,7 @@ python3 scripts/publish_article.py scripts/.article_YYYY-MM-DD_topic.json
 **素材来源平台**：TechCrunch、CNBC、Axios、Inc. （从 source_links 提取来源名，逗号间隔）
 **事件发生日期**：YYYY-MM-DD （从 event_date 字段获取）
 
-### Step 7 — 用户确认
+### Step 8 — 用户确认
 告知用户草稿已就绪，提醒：
 - 在 mp.weixin.qq.com 草稿箱预览
 - 打开文章后点「群发」→ 弹窗中填写素材来源平台 + 事件发生日期
@@ -189,7 +234,7 @@ python3 scripts/publish_article.py scripts/.article_YYYY-MM-DD_topic.json
 
 **症状**：草稿创建报 `40007 (invalid media_id)`。原因是封面图上传步骤静默失败（文件不存在或下载超时），thumb_media_id 为空字符串。
 **排查**：检查发布日志——如果「上传封面图...」之后没有「封面图 media_id: ...」行，就是没上传成功。
-**解法**：从新闻原文用 `curl -sL <URL> | grep og:image` 提取真实 og:image URL。
+**解法**：从新闻原文用 `curl -sL <URL> | grep -oE 'og:image"[[:space:]]*content="[^"]+' | cut -d'"' -f4` 提取真实 og:image URL。注意 macOS 的 `grep` 不支持 `-P`（PCRE）参数，必须用 `-oE` 加 POSIX 扩展正则。
 
 ### 摘要超长
 微信 digest 字段限制 128 字符。
