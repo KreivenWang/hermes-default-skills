@@ -1,7 +1,7 @@
 ---
 name: wechat-deep-article
 description: "公众号深度分析文章工作流：从每日简报选一个安全话题，写深度分析文章，生成图文并推送到草稿箱。"
-version: 1.1.0
+version: 1.2.0
 author: Hermes Agent
 tags: [wechat, article, analysis, deep-dive, content, publishing]
 ---
@@ -108,10 +108,20 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
   - `compare` — 对比模块（并排卡片）
   - `infobox` — 信息提示框（彩色框）
   - `highlights` — 要点高亮条（左竖线列表）
+  - `divider` — 装饰分隔线（默认"✦ ✦ ✦"）
+  - `list` — 圆点列表（content 每行一项）
+  - `image` — 在指定位置插入下一张配图
 - `image_sources` — 配图 URL 列表，**必须是真实可访问的 URL**，勿凭记忆编造
 - `source_links` — 信息源列表，用户群发前需在微信弹窗中手动填写素材来源平台和事件日期
 
 **文章结构规范：**
+
+**三色高亮语法（text 段中可用）：**
+| 语法 | 颜色 | 用途 |
+|------|------|------|
+| `**蓝色粗体**` | `#2563eb` 蓝色 | 核心数字或概念 |
+| `==橙色高亮==` | `#d97706` 橙色 | 需要强调的差异点 |
+| `~~紫色标注~~` | `#7c3aed` 紫色 | 易错点或特殊术语 |
 
 ```
 引言（1-2段）—— 为什么这件事值得关注

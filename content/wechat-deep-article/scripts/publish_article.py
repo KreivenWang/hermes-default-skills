@@ -30,7 +30,7 @@ import urllib.request
 from pathlib import Path
 
 # ── 路径 ──────────────────────────────────────────────────────────
-SKILL_DIR = Path("/Users/kreiven/.hermes/skills/daily-briefing")
+SKILL_DIR = Path(__file__).resolve().parent.parent
 CONFIG_FILE = SKILL_DIR / "scripts" / ".wechat_config.json"
 OUTPUT_DIR = SKILL_DIR / "scripts" / ".article_output"
 
@@ -220,10 +220,55 @@ def build_article_html(article_data, wx_image_urls):
         c = sec.get("content", "")
 
         if t == "heading":
+            # emoji 自动匹配
+            emoji_map = [
+                ("风险与挑战|风险|挑战|隐患", "⚠️"),
+                ("启示|总结|小结", "💡"),
+                ("对比|差异|vs|VS|vs[.]", "⚖️"),
+                ("数据|数字|指标|规模", "📊"),
+                ("背景|由来|前因后果", "📌"),
+                ("趋势|未来|展望|方向", "🔮"),
+                ("关键|核心|本质", "🔑"),
+                ("案例|实例|举例", "📋"),
+                ("建议|方案|策略", "💼"),
+                ("时间线|历程|阶段|回合", "⏱"),
+            ]
+            emoji = "📌"
+            for kw, e in emoji_map:
+                if re.search(kw, c):
+                    emoji = e
+                    break
             parts.append(
                 f'<h2 style="font-size:17px;color:{TEXT_BODY};font-weight:700;'
-                f'margin:24px 0 10px;line-height:1.5;">{h(c)}</h2>'
+                f'margin:24px 0 10px;line-height:1.5;">{emoji} {h(c)}</h2>'
             )
+
+        elif t == "divider":
+            txt = c or "✦ ✦ ✦"
+            parts.append(
+                f'<div style="text-align:center;margin:20px 0;'
+                f'color:{DIVIDER_COLOR};font-size:14px;letter-spacing:4px;">{h(txt)}</div>'
+            )
+
+        elif t == "list":
+            items = [x.strip() for x in c.split("\n") if x.strip()]
+            lis = "".join(
+                f'<li style="font-size:14px;color:{TEXT_BODY};line-height:1.7;'
+                f'margin:0 0 4px;">{h(it)}</li>'
+                for it in items
+            )
+            parts.append(
+                f'<ul style="padding-left:20px;margin:10px 0 14px;">{lis}</ul>'
+            )
+
+        elif t == "image":
+            if has_images and img_idx < len(wx_image_urls):
+                parts.append(
+                    f'<div style="margin:16px 0;border-radius:8px;overflow:hidden;">'
+                    f'<img src="{h(wx_image_urls[img_idx])}" alt="illustration" '
+                    f'style="width:100%;max-width:100%;display:block;border-radius:8px;" /></div>'
+                )
+                img_idx += 1
 
         elif t == "datacard":
             items = sec.get("items", [])
@@ -356,9 +401,12 @@ def build_article_html(article_data, wx_image_urls):
                     )
                     img_idx += 1
 
-            # 高亮处理：**关键词** → 蓝色粗体
+            # 三色高亮：**蓝色** ==橙色== ~~紫色~~
             import re as _re
-            c_hl = _re.sub(r'\*\*(.+?)\*\*', r'<span style="color:#2563eb;font-weight:600;">\1</span>', c)
+            c_hl = c
+            c_hl = _re.sub(r'\*\*(.+?)\*\*', r'<span style="color:#2563eb;font-weight:600;">\1</span>', c_hl)
+            c_hl = _re.sub(r'==(.+?)==', r'<span style="color:#d97706;font-weight:600;">\1</span>', c_hl)
+            c_hl = _re.sub(r'~~(.+?)~~', r'<span style="color:#7c3aed;font-weight:600;">\1</span>', c_hl)
 
             parts.append(
                 f'<p style="font-size:15px;color:{TEXT_BODY};line-height:1.8;'
