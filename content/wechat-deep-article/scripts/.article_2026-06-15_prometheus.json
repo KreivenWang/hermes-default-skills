@@ -1,0 +1,75 @@
+{
+  "date": "2026-06-15",
+  "event_date": "2026-06-14",
+  "title": "贝佐斯卖亚马逊股票又卖蓝色起源，这次他要造一个「AI工程师」",
+  "author": "简报",
+  "digest": "Jeff Bezos 创立的 Prometheus 以 120 亿美元融资额刷新 AI 机器人赛道纪录。这家公司的目标不是造一台聊天机器人，而是打造一个能操作工具、理解物理空间的「通用工程师」。",
+  "source_declaration": "本文素材来源：Ars Technica、Wired、TechCrunch、CNBC",
+  "sections": [
+    {
+      "type": "text",
+      "content": "Jeff Bezos 又出手了。这次不是造火箭（蓝色起源），不是造仓库机器人（Amazon Robotics），而是一家名为 Prometheus 的新公司——它的目标听起来像科幻小说：为物理世界打造一个「通用工程师 AI」。"
+    },
+    {
+      "type": "text",
+      "content": "据 Ars Technica 报道，Prometheus 在 6 月中旬完成了 **120 亿美元** 的惊人融资，创下 AI 机器人领域有史以来最高融资纪录。公司计划打造的「通用物理世界 AI」将不同于市面上任何机器人产品——它要能像人类一样理解三维空间、操作各种工具、并在真实物理环境中自主完成复杂任务。"
+    },
+    {
+      "type": "heading",
+      "content": "从仓库到世界：Bezos 的物理 AI 执念"
+    },
+    {
+      "type": "text",
+      "content": "Bezos 对机器人并不陌生。他在亚马逊时代收购了 Kiva Systems（后更名为 Amazon Robotics），将仓库自动化推向极致，至今亚马逊在全球运营着超过 75 万台机器人。但 Prometheus 的野心远超仓库。据 Wired 报道，Bezos 对「物理 AI」的兴趣早有渊源，他在蓝色起源期间就多次表达过「AI 必须走出屏幕、进入物理世界」的观点。"
+    },
+    {
+      "type": "text",
+      "content": "Prometheus 的名字来自希腊神话中盗火给人类的泰坦——暗示这家公司的使命是「把 AI 的智能之火带到物理世界」。与 OpenAI 和 Anthropic 的纯软件路线不同，Prometheus 选择了软硬一体的道路：自研机器人硬件 + 自主训练的物理世界模型，让 AI 不仅能「思考」还能「动手」。"
+    },
+    {
+      "type": "heading",
+      "content": "120 亿美元怎么花？"
+    },
+    {
+      "type": "text",
+      "content": "这笔巨大融资的用途大致分三块。第一，组建世界级团队——Prometheus 正在从波士顿动力、特斯拉 Optimus 和 Google DeepMind 的机器人部门高薪挖人，据报道其机器人硬件负责人来自 Tesla Bot 核心团队。第二，建设大规模训练设施——物理世界 AI 的训练需要远超大语言模型的数据量，Prometheus 据称正在建造一个占地数十万平米的「物理 AI 训练场」。第三，自研关键传感器和驱动器——不依赖供应链，自己造机器人的「手」和「眼睛」。"
+    },
+    {
+      "type": "heading",
+      "content": "对标还是超越？Prometheus 与波士顿动力的差异"
+    },
+    {
+      "type": "text",
+      "content": "波士顿动力的 Atlas 能做后空翻，特斯拉的 Optimus 能在工厂搬箱子，Prometheus 要做什么？根据已披露的信息，Prometheus 的核心切入点不是单一技能展示，而是「通用操作能力」——让机器人能适应从未见过的工具和环境。如果说波士顿动力解决了「机器人怎么走路」，Prometheus 要解决的是「机器人怎么干活」。"
+    },
+    {
+      "type": "text",
+      "content": "技术路线上，Prometheus 采用了「基础世界模型 + 任务微调」架构，类似于 LLM 领域的预训练+微调范式。先在大规模物理交互数据上训练一个通用理解模型，再针对具体任务做少量微调。这种架构理论上比传统机器人编程方式可扩展得多。"
+    },
+    {
+      "type": "heading",
+      "content": "风险与挑战"
+    },
+    {
+      "type": "text",
+      "content": "Prometheus 虽然融了天量资金，但挑战同样巨大。首先是工程难度——物理世界 AI 的复杂度远超语言模型，一个机器人要学会「拧螺丝」就需要理解力矩、材质、摩擦力等物理参数。其次是成本——120 亿美元虽然多，但软硬一体研发的烧钱速度在硬件行业有目共睹。最后是市场验证——企业客户是否愿意为「通用工程师」买单，目前还是一个未知数。"
+    },
+    {
+      "type": "text",
+      "content": "不过，Bezos 向来擅长长线布局。亚马逊亏了十年才开始盈利，蓝色起源走过二十年才进入商业发射阶段。如果 Prometheus 能在这个十年内走通「物理世界 AI」的技术路线，120 亿美元的入场券可能并不算贵。"
+    },
+    {
+      "type": "text",
+      "content": "作为 2026 年最受瞩目的 AI 创业之一，Prometheus 的故事还刚刚开始。它最值得兴奋的不是融了多少钱，而是它选择了一个没人真正走通的方向——让 AI 会「动手」。"
+    }
+  ],
+  "image_sources": [
+    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
+    "https://images.unsplash.com/photo-1535378917042-10a22c95931a"
+  ],
+  "source_links": [
+    {"source": "Ars Technica", "url": "https://arstechnica.com/ai/2026/06/heres-what-jeff-bezos-new-startup-prometheus-will-do/"},
+    {"source": "Wired", "url": "https://www.wired.com/story/robot-army-proxie-humanoid/"},
+    {"source": "TechCrunch", "url": "https://techcrunch.com/2026/06/14/as-ai-companies-race-to-go-public-who-else-is-along-for-the-ride/"}
+  ]
+}

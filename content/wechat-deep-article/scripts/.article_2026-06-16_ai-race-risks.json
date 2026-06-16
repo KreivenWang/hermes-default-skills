@@ -1,0 +1,36 @@
+{
+  "date": "2026-06-16",
+  "event_date": "2026-06-15",
+  "title": "对华AI竞赛：「零和叙事」正在制造新的全球风险",
+  "author": "简报",
+  "digest": "硅谷高喊「击败中国」的口号背后，出口管制、人才断流和零和博弈正在产生意想不到的后果。WIRED专访两位行业专家，剖析AI竞赛的另一面。",
+  "sections": [
+    {"type": "text", "content": "OpenAI 的 Sam Altman 说「必须击败中国」，Anthropic 的 Dario Amodei 也持同样立场。硅谷的 ==「零和叙事」== 正在成为美国AI政策的主旋律，但这场竞赛的代价可能远比想象中高昂。"},
+    {"type": "text", "content": "WIRED 近日专访了 DGA Group 合伙人 **Paul Triolo** 和 AI 领域专家 **Alvin Graylin**，深入探讨了出口管制、人才流动和全球合作这三个核心议题。以下是关键发现。"},
+    {"type": "image", "content": ""},
+    {"type": "heading", "content": "出口管制的双刃剑"},
+    {"type": "text", "content": "特朗普政府近期出台了新的 **AI 扩散规则**，旨在限制中国获取高性能计算集群和前沿模型权重。但 Triolo 指出，这套复杂的规则反而给美国科技巨头带来了巨大的不确定性。"},
+    {"type": "text", "content": "「对于 Google、Microsoft、AWS、Oracle 等超大规模云计算商，这条规定引入了关键性问题，包括国际扩张放缓、合规成本上升、全球客户流失风险。」换句话说，~~限制对手的同时也在束缚自己~~。"},
+    {"type": "text", "content": "更值得关注的是长期效应。Triolo 表示：==「出口管制确实减慢了中国的速度，但更重要的结果是，它统一了中国政府和产业界实现自给自足的决心。」== 中国投入了数百亿美元推动国产替代，本土AI开发者已经非常擅长利用旧款西方硬件，并逐步将国产芯片融入开发流程。"},
+    {"type": "comparison", "content": "❌ 预期效果：限制中国AI发展，保持美国领先\n\n✅ 实际结果：中国加速自主研发，美国企业失去市场，全球供应链分裂"},
+    {"type": "heading", "content": "人才断流：最被低估的损失"},
+    {"type": "text", "content": "全球顶尖AI研究人员中，**47%** 出生或受教育于中国。这一数据揭示了全球AI生态的深度相互依赖。"},
+    {"type": "text", "content": "Graylin 指出，==「将美中AI竞争定义为零和博弈，意味着任何合作都应避免——包括医药和能源发展领域」==。但历史上，协作研究是AI基础进步的关键动力。"},
+    {"type": "text", "content": "从前沿模型训练到学术论文发表，中国科研人员的贡献无处不在。切断人才流动，受损的不只是中国，而是整个全球AI创新体系。"},
+    {"type": "heading", "content": "领先优势正在缩小"},
+    {"type": "text", "content": "关于美国到底领先多少，各方说法不一。Graylin 表示，硅谷此前普遍认为美国领先 **1-2 年**。但这一差距正在快速缩小。"},
+    {"type": "text", "content": "「中国一些主流的生成式视频和图像模型，质量已经与美国的领先产品不相上下。最近发布的 **DeepSeek r1 和 v3** 模型，在多个基准测试中表现优于同等规模的西方竞品。」更有趣的是，Graylin 补充说：==「美国的出口管制反而迫使中国开发者比西方同行更具创造力和资源效率。」=="},
+    {"type": "heading", "content": "零和博弈还是合作共赢？"},
+    {"type": "text", "content": "Triolo 给出了一个清晰的判断：==「美中AI竞争的升级不仅对两国构成重大威胁，也威胁整个世界。可能导致危及全球和平与稳定的后果。」=="},
+    {"type": "text", "content": "他建议双方需要重新调整AI发展方式，不再将AI仅仅视为军事资产，并建立强有力的对话机制来制定共同的AI治理框架。"},
+    {"type": "quote", "content": "「我们的选择简单而严峻：要么走上对抗之路——这几乎必然导致两败俱伤；要么转向合作——这为全球繁荣与安全提供了可能。」—— Paul Triolo"},
+    {"type": "tip", "content": "AI 竞赛的本质不是「谁赢谁输」的问题。全球AI生态系统高度互联，任何单方面的脱钩都会产生连锁反应。真正的 AI 治理需要的是协作，而不是对抗。"},
+    {"type": "divider", "content": ""}
+  ],
+  "image_sources": [
+    "https://media.wired.com/photos/6786d2e9d4b9f4a16023aefb/191:100/w_1280,c_limit/AI-Lab-China-US-AI-Race-Business.jpg"
+  ],
+  "source_links": [
+    {"source": "WIRED", "url": "https://www.wired.com/story/why-beating-china-in-ai-brings-its-own-risks/"}
+  ]
+}

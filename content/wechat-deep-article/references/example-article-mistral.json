@@ -1,0 +1,66 @@
+# Mistral 估值翻倍冲200亿€ — 公众号文章示例
+
+发布时间：2026-06-13
+工作流：wechat-deep-article 试运行
+
+## 素材来源
+
+| 内容 | 来源 |
+|------|------|
+| 200亿€融资30亿€ 原始报道 | TechCrunch、Bloomberg |
+| C轮 ASML 投资 17亿€，持股11% | CNBC |
+| ARR 2000万→4亿美元，目标10亿€ | The Decoder、MLQ.ai |
+| 收购 Koyeb、Mistral Compute | Dealroom |
+| 8.3亿$债务采购13800块GPU | Reuters、VentureBeat |
+| 法/瑞数据中心，200MW目标 | CNBC |
+| 团队200人，公司信息 | Awaira、Sacra |
+
+## 文章 JSON
+
+```json
+{
+  "date": "2026-06-13",
+  "title": "Mistral 估值翻倍冲200亿€，欧洲AI终于等来了自己的「OpenAI」？",
+  "author": "Hermes 简报",
+  "digest": "法国AI公司Mistral传出正以200亿欧元估值融资30亿欧元，较半年前翻倍。一家成立仅3年的欧洲公司，凭什么值这个价？",
+  "source_declaration": "本文素材来源：TechCrunch、Bloomberg、CNBC、Reuters 等外媒公开报道",
+  "sections": [
+    {"type": "text", "content": "本周五，多家外媒报道法国 AI 公司 Mistral AI 正在早期谈判中，计划以约 200 亿欧元的估值融资 30 亿欧元。如果成行，这将是欧洲 AI 领域有史以来最大的一笔融资之一，Mistral 的估值也将较 2025 年 9 月的 C 轮（117 亿欧元）几乎翻倍。"},
+    {"type": "text", "content": "Mistral 由 Arthur Mensch 于 2023 年在巴黎创立，前两位联合创始人曾供职于 Google DeepMind 和 Meta。公司以开源模型起家，其 Mistral 7B 在发布时以「最强 7B 参数模型」的名号迅速走红，随后又推出了 MoE 架构的 Mixtral 8x7B，在开发者社区积累了极高人气。"},
+    {"type": "text", "content": "如果用一句话概括 Mistral 的定位，那就是：欧洲企业的 AI 基础设施供应商，而非仅仅是模型厂。与 OpenAI 和 Anthropic 走「通用大模型+API 订阅」路线不同，Mistral 打出了三张差异牌。"},
+    {"type": "heading", "content": "第一张牌：主权 AI"},
+    {"type": "text", "content": "欧洲企业对数据主权的敏感度远高于美国同行。银行、保险、医疗、国防等行业的合规要求使他们无法将所有数据交给美国云平台。Mistral 提供本地部署和主权云方案——模型跑在客户自己的基础设施上，数据不出境。这个市场虽然不如 ChatGPT 的 C 端用户量大，但客单价高、粘性强、替代成本极高。欧洲最大的芯片制造商 ASML 在 C 轮成为 Mistral 最大股东（持股 11%），本身就是主权叙事的最好背书。"},
+    {"type": "heading", "content": "第二张牌：开源生态"},
+    {"type": "text", "content": "Mistral 与 Meta 的 Llama 并列为开源 AI 阵营的两大支柱。其模型可以被任何开发者下载、微调、私有化部署。这不仅为 Mistral 赢得了开发者口碑，也在实际上降低了大企业的试用门槛——先免费跑通 POC，再签企业合同。对于 CTO 来说，能自己控制的模型比黑盒 API 有吸引力得多。"},
+    {"type": "heading", "content": "第三张牌：全栈化布局"},
+    {"type": "text", "content": "Mistral 已经不满足于只做模型层。今年早些时候，它收购了巴黎的 Serverless 云平台 Koyeb，并推出 Mistral Compute 云基础设施服务，为客户提供从 GPU 到推理的一站式方案。公司在法国和瑞典同时建设自有数据中心，2026 年 3 月还通过债务融资 8.3 亿美元采购 13800 块 NVIDIA GPU。CEO Arthur Mensch 在达沃斯表示，目标是到 2027 年在欧洲部署 200 兆瓦的算力容量。"},
+    {"type": "text", "content": "这些投资的回报也正在显现。Mistral 在 2026 年初的 ARR 已达到约 4 亿美元，较一年前的 2000 万美元增长了 20 倍。公司预计全年收入将突破 10 亿欧元。这个数字虽然与 OpenAI 的数百亿级别相去甚远，但对于一家成立仅 3 年的欧洲公司而言，增长速度已堪称惊人。"},
+    {"type": "heading", "content": "风险与挑战"},
+    {"type": "text", "content": "当然，200 亿欧元的估值也意味着极高的预期。Mistral 目前面临的挑战有三个。一是人才竞争——欧洲 AI 工程师薪酬水平难以匹敌美国巨头，200 人的团队规模与 OpenAI 的 4000 人差距明显。二是推理成本——开源模型的商业困境在于，API 收入天然低于闭源模型，Mistral 必须靠 Infra 层和定制化服务来提升 ARPU。三是巨头碾压——Google、Meta 的开源模型质量也在快速追赶，Mistral 需要在垂直行业建立足够深的护城河。"},
+    {"type": "text", "content": "无论如何，Mistral 这一轮潜在融资释放了一个清晰的信号：欧洲终于出现了一家有能力挑战美国 AI 霸权的本土公司。不是靠补贴，不是靠政策保护，而是靠实打实的产品和客户需求。"},
+    {"type": "text", "content": "对于关注 AI 行业的人来说，Mistral 最值得观察的不是它融了多少钱，而是它能否验证「主权 AI」这个叙事——如果欧洲头部企业真的愿意为数据主权买单，Mistral 的价值天花板远比 200 亿欧元的估值更高。"},
+    {"type": "text", "content": "这可能是 2026 年除美国巨头之外最重要的 AI 公司故事。"}
+  ],
+  "image_sources": [
+    "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2264771189.jpg"
+  ],
+  "source_links": [
+    {"source": "TechCrunch", "url": "https://techcrunch.com/2026/06/12/mistral-is-rumored-to-be-raising-e3b-at-e20-valuation/"},
+    {"source": "The Decoder", "url": "https://the-decoder.com/mistral-ai-seeks-3-billion-euros-to-fund-its-european-ai-push"},
+    {"source": "CNBC (ASML investment)", "url": "https://www.cnbc.com/2025/09/09/ai-firm-mistral-valued-at-14-billion-as-asml-takes-major-stake.html"},
+    {"source": "Reuters", "url": "https://www.reuters.com/technology/asml-becomes-biggest-mistral-investor-boost-europes-ai-ambitions-2025-09-09"}
+  ]
+}
+```
+
+## 发布结果
+
+- media_id: ddqV45t2OwuKOlfuxR23n8GGKql_BQDFn_eIre37vG4P5coV25hdAT6NfwPz_b_y
+- 配图上传统计: 2 张源 → 1 张成功上传微信 CDN
+- 草稿箱: mp.weixin.qq.com → 草稿箱 可见
+
+## 教训
+
+- JSON 中的标题不要用英文双引号 `"..."`，用中文书名号 `「」`
+- `image_sources` 最好选大型媒体 og:image（BBC/NPR/CNBC 的成功率高，小站点可能被 CDN 拦截）
+- `digest` 控制在 100 字以内更安全（微信限制 128 字符，含标点）
