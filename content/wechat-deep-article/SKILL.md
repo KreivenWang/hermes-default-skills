@@ -1,7 +1,7 @@
 ---
 name: wechat-deep-article
 description: "公众号深度分析文章工作流：从每日简报选一个安全话题，写深度分析文章，生成图文并推送到草稿箱。"
-version: 1.3.0
+version: 1.4.0
 author: Hermes Agent
 tags: [wechat, article, analysis, deep-dive, content, publishing]
 ---
@@ -179,6 +179,12 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
 - 引数据标注来源，非原创的判断句要清晰（用"据X报道"或直接标注）
 - 分析框架、叙事结构、衔接转承是原创部分，不需要标来源
 
+**文章结尾规范：**
+- 最后一段正文 → `divider` 分割线 → 免责声明 `text` 段
+- 不要在分割线后放金句、诗意结尾或总结性句子——用户要求「一个分割线就够了」
+- 标准免责声明格式：
+  `⚠️ 个人观点，仅供参考。部分素材源自公开报道，如有出入请以官方信息为准。`
+
 ### Step 6 — 发布到草稿箱
 ```bash
 python3 scripts/publish_article.py scripts/.article_YYYY-MM-DD_topic.json
@@ -197,7 +203,74 @@ python3 /abs/path/to/publish_article.py /abs/path/to/.article_YYYY-MM-DD_topic.j
 5. 调用 draft/add 创建草稿
 6. 保存本地 HTML 副本到 `scripts/.article_output/`
 
-### Step 7 — 提供来源链接给用户
+### Step 6.5 — 生成文章 audit 文件
+
+发布成功后，在 `references/` 下生成审计文件，保持与每日简报 audit 一致的追溯链。
+
+文件名格式：`references/YYYY-MM-DD-article-TOPIC-audit.md`
+
+内容结构：
+
+```markdown
+# 深度分析文章 — YYYY-MM-DD
+
+## 文章信息
+**标题**：文章标题
+**作者**：简报
+**摘要**：摘要内容
+**事件日期**：YYYY-MM-DD
+
+## 引用来源
+- **来源名**：URL
+
+## 配图
+- og:image URL
+
+## 文章完整内容
+（正文纯文本，按 sections 顺序还原，heading/quote/divider 保留结构标记）
+```
+
+用 `execute_code` 或 `terminal` 中的 Python 脚本，从文章 JSON 读取 `source_links`、`image_sources`、`sections`，写入 audit 文件。同一天多篇文章各自独立 audit 文件。
+
+### Step 7 — 生成文章审计文件
+
+发布后，在 `daily-briefing/references/` 下生成审计文件，记录本次发布的引用来源和内容快照。
+
+**文件命名规则：**
+
+```
+JSON文件:        scripts/.article_YYYY-MM-DD_topic.json
+审计文件:        references/YYYY-MM-DD-article-TOPIC-audit.md
+```
+
+其中 `TOPIC` 从 JSON 文件名中 `_topic` 部分提取，如 `ai_drone`、`fox_roku`。
+
+**审计文件内容结构：**
+
+```markdown
+# 深度分析文章 — YYYY-MM-DD
+
+## 文章信息
+
+**标题**：...
+**作者**：简报
+**摘要**：...
+**事件日期**：YYYY-MM-DD
+
+## 引用来源
+
+- **来源名**：https://...
+
+## 配图
+
+- https://...og-image.jpg
+
+## 附：文章完整内容
+
+（正文纯文本）
+```
+
+### Step 8 — 提供来源链接给用户
 发布成功后，用户需要在微信的发布弹窗中手动填写「创作来源声明」。
 **不要**把声明写在文章 HTML 里——那是微信发布前弹出的独立填写栏。
 
@@ -235,6 +308,14 @@ python3 /abs/path/to/publish_article.py /abs/path/to/.article_YYYY-MM-DD_topic.j
 **症状**：草稿创建报 `40007 (invalid media_id)`。原因是封面图上传步骤静默失败（文件不存在或下载超时），thumb_media_id 为空字符串。
 **排查**：检查发布日志——如果「上传封面图...」之后没有「封面图 media_id: ...」行，就是没上传成功。
 **解法**：从新闻原文用 `curl -sL <URL> | grep -oE 'og:image"[[:space:]]*content="[^"]+' | cut -d'"' -f4` 提取真实 og:image URL。注意 macOS 的 `grep` 不支持 `-P`（PCRE）参数，必须用 `-oE` 加 POSIX 扩展正则。
+
+### timeline 圆点尺寸溢出
+`publish_article.py` 的 timeline 圆点最初固定 18×18px + 9px 字号，4 位年份（2012/2020/2024 等）超出圆点半径。
+
+**症状**：浏览器渲染圆点内文字溢出或换行，视觉上破坏时间线布局。
+**根因**：line 325-329 的 `<div>` style 写死了 width:18px; height:18px; font-size:9px。
+**解法**：代码已修复为动态计算 `dot_size = max(24, len(phase_txt) * 11)`，字号提升至 11px。
+**预防**：写 timeline 的 phase 字段时尽量短（年份用 "12" 替代 "2012" 可省空间），但修复后已支持 4 位数。
 
 ### 摘要超长
 微信 digest 字段限制 128 字符。

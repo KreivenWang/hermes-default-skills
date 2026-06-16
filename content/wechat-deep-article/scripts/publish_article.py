@@ -428,7 +428,7 @@ def build_article_html(article_data, wx_image_urls):
     # 底部
     parts.append(
         f'<div style="margin:20px 0 0;padding:12px 0 0;border-top:1px solid {DIVIDER_COLOR};text-align:center;">'
-        f'<p style="font-size:11px;color:#bbb;margin:0;">内容仅供参考 · 不构成投资建议</p></div>'
+        f'<p style="font-size:11px;color:#bbb;margin:0;">内容均为个人观点，仅供参考</p></div>'
     )
 
     body = "\n".join(parts)
