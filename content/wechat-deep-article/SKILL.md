@@ -1,7 +1,7 @@
 ---
 name: wechat-deep-article
 description: "公众号深度分析文章工作流：从每日简报选一个安全话题，写深度分析文章，生成图文并推送到草稿箱。"
-version: 1.4.0
+version: 1.5.0
 author: Hermes Agent
 tags: [wechat, article, analysis, deep-dive, content, publishing]
 ---
@@ -45,7 +45,9 @@ tags: [wechat, article, analysis, deep-dive, content, publishing]
 
 确认不在安全红线列表中。
 
-**同日内去重**：在选话题前，先检查 `scripts/.article_YYYY-MM-DD_*.json` 是否存在。如果当天已有已写好的文章 JSON（如 `.article_2026-06-16_fox_roku.json`），跳过该话题——不要在同一天对同一批简报内容写两篇深度文。
+**同日内去重**：自动选题时，先检查 `scripts/.article_YYYY-MM-DD_*.json` 是否存在。如果当天已有已写好的文章 JSON（如 `.article_2026-06-16_fox_roku.json`），跳过该话题——不要自动对同一批简报内容写两篇深度文。
+
+**例外：用户主动要求写多篇**。当用户明确说「X那篇也写一篇」或类似指示时，不受同日内去重限制。用户指定的具体话题优于自动去重规则。同一日可存在多篇不同话题的文章 JSON，各自独立审计文件。
 
 **跨天去重**：检查 `references/YYYY-MM-DD-topics.md`（前一天的简报话题），排除上一期已有深度文的核心话题。用户对「昨天消息今天又深挖」敏感。
 
@@ -124,8 +126,7 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
     {"type": "highlights", "items": [
       {"title": "要点一", "content": "描述", "color": "red"}
     ]},
-    {"type": "divider"},
-    {"type": "list", "content": "项1\n项2\n项3"}
+    {"type": "text", "content": "结尾总结段：一句话提炼全文核心观点，犀利收束。"}
   ],
   "image_sources": [
     "https://...og-image.jpg"
@@ -180,10 +181,11 @@ HTML 存档自动保存在 `scripts/.article_output/`，用户不需要打开，
 - 分析框架、叙事结构、衔接转承是原创部分，不需要标来源
 
 **文章结尾规范：**
-- 最后一段正文 → `divider` 分割线 → 免责声明 `text` 段
-- 不要在分割线后放金句、诗意结尾或总结性句子——用户要求「一个分割线就够了」
-- 标准免责声明格式：
-  `⚠️ 个人观点，仅供参考。部分素材源自公开报道，如有出入请以官方信息为准。`
+- 最后一段 = **总结段**，用 `text` 类型，以一句话提炼全文核心观点收尾
+- **不需要 `divider` 分割线，不需要免责声明**——用户明确要求去掉这些尾部修饰
+- 总结段直接放在 sections 数组末尾，最后一个元素就是总结正文
+- 总结风格：犀利凝练的结论性句子，不要鸡汤或诗化表达，不要「值得注意」等空话
+- 标准结构：最后一个 `{"type": "text"}` 段即为文章结尾，无后续模块
 
 ### Step 6 — 发布到草稿箱
 ```bash

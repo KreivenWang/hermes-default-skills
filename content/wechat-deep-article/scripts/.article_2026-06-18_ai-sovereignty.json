@@ -1,0 +1,63 @@
+{
+  "date": "2026-06-18",
+  "event_date": "2026-06-17",
+  "title": "G7领袖的焦虑：美国AI好用，但谁能保证不会被一键关停？",
+  "author": "简报",
+  "digest": "马克龙和莫迪在G7峰会上发出警告：==美国可以一夜之间切断盟友的AI访问权限==。这个担忧，在Anthropic刚刚被政府指令关停模型后，显得并不遥远。",
+  "sections": [
+    {"type": "text", "content": "法国总统马克龙和印度总理莫迪在G7峰会上提出了一个让各国领导人坐立不安的问题：**如果美国随时可以关掉你的AI服务，你还敢放心用吗？**"},
+    {"type": "text", "content": "据 TechCrunch 报道，两位领导人在G7闭门会议中明确表达了对美国AI霸权的高度警惕。他们担心的不是美国AI不够好——恰恰相反，==美国AI太好用了，以至于全球都离不开它==。但问题是，当一个国家掌握了「关停开关」，所有依赖者都处于风险之中。"},
+    {"type": "datacard", "items": [
+      {"value": "3个", "label": "Anthropic被关停的模型系列", "color": "red"},
+      {"value": "6月14日", "label": "美国政府指令发送日", "color": "orange"},
+      {"value": "国安威胁", "label": "商务部给出的关停理由", "color": "purple"}
+    ]},
+    {"type": "text", "content": "让这个担忧变成「活生生案例」的，是一周前发生的事。"},
+    {"type": "heading", "content": "导火索：Anthropic被政府下令关模型"},
+    {"type": "text", "content": "6月14日，美国商务部以**国家安全威胁**为由，指令Anthropic关停其Fable和Mythos系列模型。商务部的担忧来自一次越狱测试——研究人员发现Fable 5可以被诱导输出敏感信息，认为该模型存在被恶意利用的风险，可能构成国安威胁。"},
+    {"type": "text", "content": "Anthropic遵照指令迅速执行，Fable和Mythos系列在数小时内下线。对于那些正在使用这些模型的开发者和企业来说，这是==一场突如其来的断供==——没有预警，没有过渡期，只有一条「已关停」的通知。"},
+    {"type": "timeline", "items": [
+      {"phase": "1", "title": "6月14日 · Anthropic关停模型", "desc": "美国商务部以国安风险为由，指令Anthropic关停Fable和Mythos系列"},
+      {"phase": "2", "title": "6月15-17日 · G7峰会召开", "desc": "马克龙和莫迪在会上公开表达对美国AI单边管控的担忧"},
+      {"phase": "3", "title": "持续发酵 · 各国重新评估依赖度", "desc": "欧洲和亚太国家开始审视对美国AI基础设施的过度依赖风险"}
+    ]},
+    {"type": "heading", "content": "一个危险的先例"},
+    {"type": "text", "content": "Anthropic事件的意义远不止一家公司的模型下线。它建立了一个**先例**：美国行政部门可以以「国安」为由，单方面切断全球用户对某一AI模型的访问。今天关的是Fable 5，明天可以是任何模型。"},
+    {"type": "text", "content": "TechCrunch的报道引述了一位G7外交官的表述：==「我们想要美国AI——没有人否认它的领先优势。但我们不想要附加条件：'只要你听话，就让你用。'」== 这种情绪在峰会上获得了广泛共鸣。"},
+    {"type": "compare", "sides": [
+      {"icon": "❌", "title": "全盘依赖美国AI", "points": ["随时可能被单方面断供", "受美国国内政治影响", "数据主权风险", "被动接受美国的安全标准"], "color": "blue"},
+      {"icon": "✅", "title": "建立自主AI能力", "points": ["核心基础设施可控", "数据主权有保障", "长期成本可能更低", "符合国家战略安全"], "color": "green"}
+    ]},
+    {"type": "heading", "content": "三方博弈：美国的算力、欧洲的法规、中国的追赶"},
+    {"type": "text", "content": "当前全球AI格局呈现一个奇特的结构：美国掌握最先进的模型和算力，欧洲拥有最严格的数据法规，而在出口管制倒逼下加速追赶。每个地区都有自己的筹码，也都有自己的短板。"},
+    {"type": "highlights", "items": [
+      {"title": "风险一", "content": "算力集中：全球90%+的AI训练算力集中在美国云厂商手中", "color": "purple"},
+      {"title": "风险二", "content": "法规真空：AI服务断供没有国际法或贸易协定约束", "color": "red"},
+      {"title": "风险三", "content": "替代缺失：欧洲和亚洲短期内找不到美国AI的同等替代品", "color": "blue"}
+    ]},
+    {"type": "infobox", "style": "info", "title": "📎 各国的应对", "content": "法国已公开推动「欧洲AI主权」计划，投资数十亿欧元扶持本土AI公司。印度则加速与多家美国AI公司谈判，争取在本地部署模型实例。日本的策略更务实——深度绑定多家美国AI供应商，避免单一依赖。"},
+    {"type": "heading", "content": "中国的答卷：被出口管制倒逼的自主路"},
+    {"type": "text", "content": "如果说欧洲和印度对「AI断供」的担忧还停留在预判阶段，中国则早已身处其中。自2022年美国启动芯片出口管制以来，中国企业就一直在经历一场极限压力测试——买不到最先进的GPU、接不到最高性能的美国云服务、模型权重获取通道逐步收紧。这场测试的结果，出乎许多人的预料。"},
+    {"type": "text", "content": "据 WIRED 报道，出口管制虽然减慢了中国的速度，但更重要的结果是==「统一了中国政府和产业界实现自给自足的决心」==。数百亿美元投入国产芯片替代和算力基础设施建设，本土AI开发者在受限的硬件条件下，反而磨练出了更高的资源利用效率。"},
+    {"type": "compare", "sides": [
+      {"icon": "📅", "title": "出口管制前", "points": ["依赖NVIDIA GPU+美国云", "模型训练用最新架构", "开源模型来自Meta/Google", "算力租赁成本可控"], "color": "blue"},
+      {"icon": "🚀", "title": "出口管制后", "points": ["华为昇腾+国产芯片替代", "模型优化提升硬件利用率", "DeepSeek等国产模型崛起", "推理成本下降超预期"], "color": "green"}
+    ]},
+    {"type": "text", "content": "最受关注的成功案例是 **DeepSeek**。其发布的 **DeepSeek r1 和 v3** 模型在多个基准测试中表现优于同等规模的西方竞品——而它们的训练算力远低于OpenAI和Anthropic的同类模型。WIRED 援引AI专家Alvin Graylin的评价：==「美国的出口管制反而迫使中国开发者比西方同行更具创造力和资源效率。」=="},
+    {"type": "highlights", "items": [
+      {"title": "算力替代", "content": "华为昇腾910B+CANN软件栈已支撑大规模训练", "color": "purple"},
+      {"title": "模型自立", "content": "DeepSeek、Qwen、Baichuan等国产大模型快速迭代", "color": "red"},
+      {"title": "人才储备", "content": "全球47%顶尖AI研究人员出生或受教育于中国", "color": "blue"},
+      {"title": "成本优势", "content": "国产模型推理成本已降至GPT-4的1/10以下", "color": "green"}
+    ]},
+    {"type": "text", "content": "当然，这不等于中国AI已经实现完全自主。在最前沿的大规模训练、多模态理解和Agent能力上，美国仍有明显领先优势。但中国AI生态的弹性和响应速度，为其他国家提供了一个重要参考：**当AI供应安全受到威胁时，「被动接受」不是唯一的选择。**"},
+    {"type": "text", "content": "对于正在观望这场博弈的企业和开发者来说，中国的经验给出了一个务实的方向：不要把生存寄托在单一供应源上。当依赖变成风险时，分散配置就是最理性的选择。"}
+  ],
+  "image_sources": [
+    "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2281424015.jpg?w=1024"
+  ],
+  "source_links": [
+    {"source": "TechCrunch", "url": "https://techcrunch.com/2026/06/17/world-leaders-want-american-ai-they-just-dont-want-america-to-be-able-to-turn-it-off/"},
+    {"source": "Ars Technica", "url": "https://arstechnica.com/ai/2026/06/anthropic-shuts-down-fable-mythos-models-following-trump-admin-directive/"}
+  ]
+}

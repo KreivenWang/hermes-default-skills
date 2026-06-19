@@ -1,7 +1,7 @@
 ---
 name: daily-briefing
 description: "每日简报：AI + 国际 + 金融，每类3条，每条附简介+出处。"
-version: 3.2.0
+version: 3.2.1
 author: Hermes Agent
 tags: [briefing, finance, ai-news, international, news-scraping]
 ---
@@ -217,6 +217,7 @@ BBC 文章 URL 使用不可预测的随机 ID（如 `/news/articles/c77y47248k4o
 
 ### CNBC Access Denied
 CNBC 使用 Edge CDN 保护，curl 会被拦截返回 `<TITLE>Access Denied</TITLE>`（状态码 403）。遇到时：
+- **尝试绕过**：加 `-H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"` 有时可以绕过 CDN 拦截，获取 og:description 和 og:image
 - 金融类备选：BBC Business → 提取标题匹配 → 定位文章
 - 不可用 curl 硬碰，改用 web_search 或跳过
 

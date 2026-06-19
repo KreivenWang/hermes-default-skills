@@ -1,0 +1,91 @@
+{
+  "date": "2026-06-19",
+  "event_date": "2026-06-18",
+  "title": "波士顿动力机器人告别编排，开始「自学」干活",
+  "author": "简报",
+  "digest": "从舞池到车间——波士顿动力机器人学会用强化学习自己学技能，搬运冰箱不再是难题",
+  "sections": [
+    {
+      "type": "text",
+      "content": "曾几何时，波士顿动力（Boston Dynamics）的机器人凭一支又一支「跳舞」视频刷爆全网。从 Atlas 后空翻到 Spot 的 Uptown Funk 舞步——这些视频让全球惊叹，但背后全是工程师逐帧编排的代码。如今，这家公司正在做一件截然不同的事：让机器人自己学。"
+    },
+    {
+      "type": "datacard",
+      "items": [
+        {"value": "30+年", "label": "波士顿动力研发史", "color": "purple"},
+        {"value": "3款", "label": "主力机器人(Atlas/Spot/Stretch)", "color": "blue"},
+        {"value": "电动化", "label": "第二代Atlas，更轻更安静", "color": "teal"},
+        {"value": "RAI", "label": "Raibert创立的RL研究所", "color": "orange"}
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "从「编舞」到「自学」"
+    },
+    {
+      "type": "text",
+      "content": "创始人 Marc Raibert 在 Wired 最新采访中透露，Atlas 和 Spot 正在用强化学习（Reinforcement Learning, RL）获得更大自主性。不再是工程师手写每一条动作指令，而是在仿真环境中反复试错，然后将学到的技能**迁移到真实世界**。Raibert 称这是一个「机器人独立性里程碑」。"
+    },
+    {
+      "type": "text",
+      "content": "强化学习 的核心机制是 sim-to-real（从模拟到现实）迁移：机器人在模拟环境中进行数百万次虚拟尝试，RL 算法通过==奖励/惩罚信号==自动找到最优动作策略。训练完成后将策略「部署」到真实机器人上，这种方式大幅降低了对物理机器人测试时间和硬件磨损的依赖。"
+    },
+    {
+      "type": "timeline",
+      "items": [
+        {"phase": "1", "title": "2013-2019 · 液压暴力时代", "desc": "Petman 和 HD Atlas 后空翻震惊世界，但笨重高噪，靠手写代码编排动作"},
+        {"phase": "2", "title": "2020-2024 · 电动化转型", "desc": "退役液压 Atlas，推出更安静的电驱版；Spot 正式上市商用，Stretch 进仓储"},
+        {"phase": "3", "title": "2025+ · 自学时代", "desc": "与 RAI Institute 合作，RL 替代手写控制代码，技能由机器人自己习得"}
+      ]
+    },
+    {
+      "type": "quote",
+      "content": "Atlas is learning to make its own decisions about how to move. That's different from where we were."
+    },
+    {
+      "type": "text",
+      "content": "Raibert 在 2025 年离开波士顿动力后又创立了 RAI Institute（机器人及 AI 研究所），专门推进 RL 在机器人领域的落地。波士顿动力与 RAI Institute 的合作，本质上是在做一件可能是机器人行业最关键的转移：从 ==人工编排智能== 转向 ==自主学习智能==。"
+    },
+    {
+      "type": "compare",
+      "sides": [
+        {
+          "icon": "❌",
+          "title": "旧模式：手写编排",
+          "points": ["工程师逐帧写动作代码", "精确但脆弱——换个环境就失效", "训练周期以月为单位", "几乎无法泛化到新场景"],
+          "color": "blue"
+        },
+        {
+          "icon": "✅",
+          "title": "新模式：RL自学习",
+          "points": ["机器人自己从试错中习得技能", "泛化性强，能适应陌生地形", "模拟中并行训练，效率暴增", "同一套策略可迁移至不同任务"],
+          "color": "green"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "转型已结出果实。最新进展中，Atlas 已能用全身控制和内部感知自主搬运装满饮料的迷你冰箱，全程**无需外部传感器或预设路径**。这意味着机器人从「表演特技」走向了「干真活」——这是产业级落地的关键信号。Spot 也在 RL 训练下学会了适应楼梯、碎石、湿滑路面等复杂地形，不再需要工程师针对每种路面单独调参。"
+    },
+    {
+      "type": "highlights",
+      "items": [
+        {"title": "降低部署门槛", "content": "机器人技能从编程走向数据驱动，非硬件公司也能用训练好的模型", "color": "purple"},
+        {"title": "泛化能力质的飞跃", "content": "RL学到的策略天然适应环境变化，不再局限实验室表演", "color": "blue"},
+        {"title": "人形机器人的临界点", "content": "以Atlas为代表，人形机器人正在积累真正实用的物理交互技能", "color": "green"}
+      ]
+    },
+    {
+      "type": "text",
+      "content": "波士顿动力用三十年从液压暴力走到强化学习自主决策，这一步的意义远超「机器人学会新技能」本身——它标志着机器人从**被编程的工具**，变成了**能自主适应环境的智能体**。AI 让机器人有了「身体智能」，而这个进化才刚刚开始。"
+    }
+  ],
+  "image_sources": [
+    "https://media.wired.com/photos/67be17abc4bb02587ec88489/191:100/w_1280,c_limit/AI-Lab-Humanoid-Robots-145083514.jpg"
+  ],
+  "source_links": [
+    {"source": "Wired", "url": "https://www.wired.com/story/boston-dynamics-led-a-robot-revolution-now-its-machines-are-teaching-themselves-new-tricks/"},
+    {"source": "TechCrunch", "url": "https://techcrunch.com/2025/02/05/boston-dynamics-joins-forces-with-its-former-ceo-to-speed-the-learning-of-its-atlas-humanoid-robot/"},
+    {"source": "RAI Institute", "url": "https://rai-inst.com/resources/press-release/boston-dynamics-atlas-partnership/"}
+  ]
+}
